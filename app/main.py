@@ -6,12 +6,11 @@ from app.people.cinema_staff import Cleaner
 
 def cinema_visit(customers: list,
                  hall_number: int, cleaner: str, movie: str) -> None:
-    bar_obj = CinemaBar()
     customer_objects = []
     for customer in customers:
         obj = Customer(customer["name"], customer["food"])
         customer_objects.append(obj)
-        bar_obj.sell_product(obj.food, obj)
+        CinemaBar.sell_product(obj.food, obj)
 
     start_movie = CinemaHall(hall_number)
     cleaner_objects = Cleaner(cleaner)
